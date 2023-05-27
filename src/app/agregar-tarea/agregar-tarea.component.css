@@ -1,0 +1,58 @@
+/* app-agregar-tarea.component.css */
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para las etiquetas de los campos */
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para los campos de entrada de texto */
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los selectores de fecha y hora */
+  select {
+    width: 100px;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el botón de agregar tarea */
+  button[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el área de detalles */
+  textarea {
+    height: 100px;
+  }
+  
+  /* Estilos para el mensaje de error */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

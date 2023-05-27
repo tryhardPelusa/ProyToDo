@@ -1,0 +1,49 @@
+/* Estilos para el formulario de modificación de tarea */
+.formulario-modificacion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  
+  .formulario-modificacion label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .formulario-modificacion input,
+  .formulario-modificacion select,
+  .formulario-modificacion textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .formulario-modificacion textarea {
+    height: 80px;
+  }
+  
+  .formulario-modificacion button[type="submit"] {
+    background-color: #5a7ba9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .formulario-modificacion button[type="submit"]:hover {
+    background-color: #4551a0;
+  }
+  

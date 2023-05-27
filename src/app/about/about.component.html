@@ -1,0 +1,33 @@
+<h1>Documentación</h1>
+<h3>Estructura de componentes y plantillas</h3>
+<p>
+    Mi web está dividida en 3 plantilla. La plantilla de documentacion, tareas por orden cronológico y tareas por estado.
+</p>
+<p>He utilizado los siguientes componentes: <br>
+    - Tarea: En este componente se muestra todo lo relacionado con una tarea específica. Está añadida dentro
+    de la vista mi-listado. Se compone de título, resumen, fecha y estado.<br>
+    
+    - borrado-tarea.service: Esto es un servicio en vez de un componente, sin embargo lo añado a la lista ya que varios
+    componentes lo han utilizado como auxiliar para funcionar correctamente. He aprendido a usarlo en la siguiente web:
+    https://desarrolloweb.com/articulos/servicios-angular.html. En principio solo iba a servirme para el borrado de tareas
+    por eso tiene ese nombre, sin embargo lo he acabado utilizando para cargar el listado de tareas, borrar tareas, añadir tareas
+    y modificar tareas. He preferido no cambiarle el nombre ya que no conozco ninguna herramienta de refactorización en 
+    Visual Studio y se me iba a olvidar cambiar alguna referencia.<br>
+
+    - Agregar-tarea: Este componente se encarga de agregar una nueva tarea a la lista. Tiene unos campos en el html en los que
+    se recogen los datos (input) que introduzca el usuario. He tenido aquí un problema con la fecha y hora, ya que de primeras
+    habia puesto un campo de tipo date en el html, pero de esta forma no se podía recoger la hora. Asique al final he acabado
+    realizando un selector manual y le he pasado los datos escogidos al constructor Date dentro de typeScript para guardar la fecha
+    y hora al completo. Este componente se apolla en borrado-tarea.service, que es el que se encargará de insertar una nueva tarea al array.
+    <br>
+
+    - modificar-tarea: Este componente usa los mismos campos que el componente agregar-tarea. En este caso aparecen ya rellenos con los
+    datos de la tarea seleccionada. Los campos podrán modificarse y al pulsar "modificar tarea" se enviarán los nuevos
+    datos al servicio borrado-tarea para que haga la modificación en la tarea correspondiente.
+
+    - mi-listado: Es la vista en la que se representará el array de tareas. También tiene un botón que actua como filtro para
+    mostrar solamente las tareas pendientes.
+
+
+</p>
+<p>De aquí he aprendido a usar los servicios: https://desarrolloweb.com/articulos/servicios-angular.html</p>

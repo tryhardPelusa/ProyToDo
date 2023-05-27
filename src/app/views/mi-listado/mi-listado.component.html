@@ -1,0 +1,8 @@
+<div id="listado">
+    <h3>tareas a realizar</h3>
+    <button (click)="mostrarPendientes()">Mostrar solo tareas pendientes</button>
+    <div *ngFor="let tarea of listadoTareas">
+        <app-tarea [estaTarea]="tarea" [app]="this.app" *ngIf="!soloPendientes || tarea.estado === 'pendiente'">
+        </app-tarea>
+    </div>
+</div>
