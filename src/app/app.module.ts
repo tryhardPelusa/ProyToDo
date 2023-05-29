@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgStyle } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -19,10 +20,10 @@ import { MiListadoOrdestadoComponent } from './mi-listado-ordestado/mi-listado-o
     AboutComponent,
     AgregarTareaComponent,
     ModificarTareaComponent,
-    MiListadoOrdestadoComponent
+    MiListadoOrdestadoComponent,
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, NgStyle
   ],
   providers: [],
   bootstrap: [AppComponent]

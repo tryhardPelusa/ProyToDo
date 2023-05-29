@@ -1,6 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 import { ITarea } from 'src/app/shared/interfaces/itarea';
 import { AppComponent } from './app.component';
+import { MiListadoComponent } from './views/mi-listado/mi-listado.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class BorradoTareaService {
     if (storedListado) {
       this.listadoTareas = JSON.parse(storedListado);
     }
-    this.estaTarea = { fechaInicio: new Date(), actividad: "", detalles: "", estado: 'pendiente' }
+    this.estaTarea = { fechaInicio: 0, actividad: "", detalles: "", estado: 'pendiente' }
   }
 
   guardarEnLocalStorage(): void {
@@ -26,11 +27,14 @@ export class BorradoTareaService {
     const indice = this.listadoTareas.indexOf(tarea);
     if (indice !== -1) {
       this.listadoTareas.splice(indice, 1);
+      console.log("Eliminar tarea");
       this.guardarEnLocalStorage();
     }
   }
 
-  agregarTarea(fechaInicio: Date, actividad: string, detalles: string): void {
+  agregarTarea(fechaInicio: number, actividad: string, detalles: string): void {
+    console.log("Servicio");
+    console.log(typeof fechaInicio);
     const nuevaTarea: ITarea = {
       fechaInicio,
       actividad,
@@ -38,10 +42,13 @@ export class BorradoTareaService {
       estado: 'pendiente'
     };
     this.listadoTareas.push(nuevaTarea);
+    console.log("Agregar tarea", nuevaTarea);
+    console.log(this.listadoTareas[0]);
+    this.ordenarTareasCronologicamente();
     this.guardarEnLocalStorage();
   }
 
-  modificarTarea(fechaInicio: Date, actividad: string, detalles: string, app:any): void {
+  modificarTarea(fechaInicio: number, actividad: string, detalles: string, app:any): void {
     const tareaMod: ITarea = {
       fechaInicio,
       actividad,
@@ -51,6 +58,7 @@ export class BorradoTareaService {
 
     const indice = this.listadoTareas.findIndex(i => i == this.estaTarea);
     this.listadoTareas[indice] = tareaMod;
+    console.log("Modificar tarea");
     this.guardarEnLocalStorage();
     console.log("Estas en borrado-tarea.ts");
     if (app != null) {  
@@ -71,6 +79,16 @@ export class BorradoTareaService {
       tareaActual.estado = "pendiente";
     }
     this.listadoTareas[indice] = tareaActual;
+    console.log("cambio de estado");
+    this.guardarEnLocalStorage();
+  }
+
+  ordenarTareasCronologicamente(): void {
+    console.log("metodo sort");
+    console.log(this.listadoTareas[0]);
+    this.listadoTareas.sort((tarea1:ITarea, tarea2:ITarea) => {
+      return tarea1.fechaInicio - tarea2.fechaInicio;
+    });
     this.guardarEnLocalStorage();
   }
 }

@@ -1,33 +1,39 @@
-<h1>Documentación</h1>
-<h3>Estructura de componentes y plantillas</h3>
-<p>
-    Mi web está dividida en 3 plantilla. La plantilla de documentacion, tareas por orden cronológico y tareas por estado.
-</p>
-<p>He utilizado los siguientes componentes: <br>
-    - Tarea: En este componente se muestra todo lo relacionado con una tarea específica. Está añadida dentro
-    de la vista mi-listado. Se compone de título, resumen, fecha y estado.<br>
+<div id="contenido">
+    <h1>Documentación</h1>
+    <p>Estructura de componentes y plantillas</p>
     
-    - borrado-tarea.service: Esto es un servicio en vez de un componente, sin embargo lo añado a la lista ya que varios
-    componentes lo han utilizado como auxiliar para funcionar correctamente. He aprendido a usarlo en la siguiente web:
-    https://desarrolloweb.com/articulos/servicios-angular.html. En principio solo iba a servirme para el borrado de tareas
-    por eso tiene ese nombre, sin embargo lo he acabado utilizando para cargar el listado de tareas, borrar tareas, añadir tareas
-    y modificar tareas. He preferido no cambiarle el nombre ya que no conozco ninguna herramienta de refactorización en 
-    Visual Studio y se me iba a olvidar cambiar alguna referencia.<br>
+    <p>Mi web está dividida en 3 plantillas. La plantilla de documentación, tareas por orden cronológico y tareas por estado.</p>
+    
+    <p>He utilizado los siguientes componentes:</p>
+    
+    <ul>
+        <li>
+            <strong>Tarea:</strong> En este componente se muestra todo lo relacionado con una tarea específica. Está añadida dentro de la vista mi-listado. Se compone de título, resumen, fecha y estado.
+        </li>
+        <li>
+            <strong>borrado-tarea.service:</strong> Esto es un servicio en vez de un componente, sin embargo, lo añado a la lista ya que varios componentes lo han utilizado como auxiliar para funcionar correctamente. Un servicio es una clase que se utiliza para organizar y compartir lógica, datos y funcionalidades entre diferentes componentes de una aplicación. He aprendido a usarlo en la siguiente web: <a href="https://desarrolloweb.com/articulos/servicios-angular.html">https://desarrolloweb.com/articulos/servicios-angular.html</a>. En principio solo iba a servirme para el borrado de tareas por eso tiene ese nombre, sin embargo, lo he acabado utilizando para cargar el listado de tareas, borrar tareas, añadir tareas y modificar tareas. He preferido no cambiarle el nombre ya que no conozco ninguna herramienta de refactorización en Visual Studio y se me iba a olvidar cambiar alguna referencia.
+        </li>
+        <li>
+            <strong>Agregar-tarea:</strong> Este componente se encarga de agregar una nueva tarea a la lista. Tiene unos campos en el html en los que se recogen los datos (input) que introduzca el usuario. He tenido aquí un problema con la fecha y hora, ya que de primeras había puesto un campo de tipo date en el html, pero de esta forma no se podía recoger la hora. Asique al final he acabado realizando un selector manual y le he pasado los datos escogidos al constructor Date dentro de typeScript para guardar la fecha y hora al completo. Este componente se apoya en borrado-tarea.service, que es el que se encargará de insertar una nueva tarea al array. Finalmente he guardado la fecha y hora como un número para poder trabajar con él internamente. A la hora de mostrarlo lo he convertido en tipo date.
+        </li>
+        <li>
+            <strong>Modificar-tarea:</strong> Este componente usa los mismos campos que el componente agregar-tarea. En este caso aparecen ya rellenos con los datos de la tarea seleccionada. Los campos podrán modificarse y al pulsar "modificar tarea" se enviarán los nuevos datos al servicio borrado-tarea para que haga la modificación en la tarea correspondiente. 
+        </li>
+        <li>
+            <strong>mi-listado:</strong> Es la vista en la que se representará el array de tareas en orden cronológico. También tiene un botón que actúa como filtro para mostrar solamente las tareas pendientes.
+        </li>
+        <li>
+            <strong>mi-listado-ordenado</strong> Igual que el anterior, pero separa las tareas entre las realizadas y las pendientes.
+        </li>
+        <li>
+            <strong>mi-menu:</strong> En este componente se permite elegir la vista a mostrar, pudiendo escoger la documentación, y las listas de tareas ordenadas por fecha o por estado.
+        </li>
+        <li>
+            <strong>itarea:</strong> Esta es la interfaz que deben cumplir todas las tareas de la lista. Consta de un título, un resumen, una fecha y un estado.
+        </li>
+        <li>
+            <strong>about:</strong> Es la vista de la documentación.
+        </li>
 
-    - Agregar-tarea: Este componente se encarga de agregar una nueva tarea a la lista. Tiene unos campos en el html en los que
-    se recogen los datos (input) que introduzca el usuario. He tenido aquí un problema con la fecha y hora, ya que de primeras
-    habia puesto un campo de tipo date en el html, pero de esta forma no se podía recoger la hora. Asique al final he acabado
-    realizando un selector manual y le he pasado los datos escogidos al constructor Date dentro de typeScript para guardar la fecha
-    y hora al completo. Este componente se apolla en borrado-tarea.service, que es el que se encargará de insertar una nueva tarea al array.
-    <br>
-
-    - modificar-tarea: Este componente usa los mismos campos que el componente agregar-tarea. En este caso aparecen ya rellenos con los
-    datos de la tarea seleccionada. Los campos podrán modificarse y al pulsar "modificar tarea" se enviarán los nuevos
-    datos al servicio borrado-tarea para que haga la modificación en la tarea correspondiente.
-
-    - mi-listado: Es la vista en la que se representará el array de tareas. También tiene un botón que actua como filtro para
-    mostrar solamente las tareas pendientes.
-
-
-</p>
-<p>De aquí he aprendido a usar los servicios: https://desarrolloweb.com/articulos/servicios-angular.html</p>
+    </ul>
+</div>

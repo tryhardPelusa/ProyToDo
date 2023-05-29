@@ -25,4 +25,5 @@ export class MiListadoComponent {
   guardarEnLocalStorage(): void {
     localStorage.setItem('listadoTareas', JSON.stringify(this.listadoTareas));
   }
+  
 }

@@ -15,19 +15,6 @@ export class MiListadoOrdestadoComponent {
 
   constructor(private borradoTareaService: BorradoTareaService) {
     this.listadoTareas = borradoTareaService.listadoTareas;
-    this.ordenarTareasCronologicamente();
-  }
-
-  ordenarTareasCronologicamente(): void {
-    console.log("Tareas ordenadas por estado")
-    this.listadoTareas.sort((tarea1, tarea2) => {
-      return tarea1.detalles.localeCompare(tarea2.detalles);
-    });
-    this.guardarEnLocalStorage();
-  }
-
-  mostrarPendientes():void{
-    this.soloPendientes = !this.soloPendientes;
   }
 
   guardarEnLocalStorage(): void {

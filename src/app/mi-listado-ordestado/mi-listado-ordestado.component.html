@@ -1,8 +1,16 @@
-<div id="listado">
-    <h3>tareas a realizar</h3>
-    <button (click)="mostrarPendientes()">Mostrar solo tareas pendientes</button>
-    <div *ngFor="let tarea of listadoTareas">
-        <app-tarea [estaTarea]="tarea" [app]="this.app" *ngIf="!soloPendientes || tarea.estado === 'pendiente'">
-        </app-tarea>
+<div id="contenido">
+    <h3>Tareas Pendientes</h3>
+    <div class="listado">
+        <div class="listado" *ngFor="let tarea of listadoTareas">
+            <app-tarea [estaTarea]="tarea" [app]="this.app" *ngIf="tarea.estado === 'pendiente'">
+            </app-tarea>
+        </div>
+    </div>
+    <h3>Tareas Realizadas</h3>
+    <div class="listado">
+        <div *ngFor="let tarea of listadoTareas">
+            <app-tarea [estaTarea]="tarea" [app]="this.app" *ngIf="tarea.estado !== 'pendiente'">
+            </app-tarea>
+        </div>
     </div>
 </div>

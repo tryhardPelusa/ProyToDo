@@ -1,8 +1,9 @@
-<div class="tarea">
+<div class="tarea" [ngStyle]="{'background-color': estaTarea.estado === 'realizada' ? 'green' : 'red'}">
     <h4>{{estaTarea.actividad}}</h4>
     <p>{{estaTarea.detalles}}</p>
     <p (click)="cambiarEstado()">{{estaTarea.estado}}</p>
-    <p>{{estaTarea.fechaInicio}}</p>
+    <p>Fecha: {{fechaFormateada}}</p>
+    <p>Hora: {{horaFormateada}}</p>
     <button (click)="borrarTarea()">Borrar</button>
     <button (click)="modificarTarea()">Modificar</button>
 </div>

@@ -1,5 +1,5 @@
 export interface ITarea {
-    fechaInicio: Date,
+    fechaInicio: number,
     actividad: string,
     detalles: string,
     estado: 'pendiente' | 'realizada';

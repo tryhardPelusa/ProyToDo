@@ -28,7 +28,7 @@ export class ModificarTareaComponent {
     this.fecha.setHours(this.hora); 
     this.fecha.setMinutes(this.minuto); 
 
-    this.borradoTareaService.modificarTarea(this.fecha, this.estaTarea.actividad, this.estaTarea.detalles, this.app);
+    this.borradoTareaService.modificarTarea(this.fecha.getTime(), this.estaTarea.actividad, this.estaTarea.detalles, this.app);
 
   }
 }
